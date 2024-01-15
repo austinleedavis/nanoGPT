@@ -1,6 +1,6 @@
 # train a miniature character-level shakespeare model
 
-out_dir = 'lichess_uci_all_elos_8layers'
+out_dir = 'out-lichess-uci'
 eval_interval = 2000 # keep frequent because we'll overfit
 eval_iters = 100
 log_interval = 100 # don't print too too often
