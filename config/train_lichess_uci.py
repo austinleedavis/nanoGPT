@@ -2,10 +2,10 @@
 # good for debugging and playing on macbooks and such
 
 out_dir = 'lichess_uci_all_elos_8layers'
-eval_interval = 100 # keep frequent because we'll overfit
+eval_interval = 2000 # keep frequent because we'll overfit
 eval_iters = 100
 log_interval = 100 # don't print too too often
-init_from = 'scratch' # 'scratch' or 'resume' or 'gpt2*'
+init_from = 'resume' # 'scratch' or 'resume' or 'gpt2*'
 
 always_save_checkpoint = True
 
