@@ -1,5 +1,4 @@
 # train a miniature character-level shakespeare model
-# good for debugging and playing on macbooks and such
 
 out_dir = 'lichess_uci_all_elos_8layers'
 eval_interval = 2000 # keep frequent because we'll overfit
