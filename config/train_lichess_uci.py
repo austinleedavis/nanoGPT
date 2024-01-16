@@ -14,7 +14,7 @@ wandb_run_name = 'lichess_uci_all_elos_8layers_fixlr'
 wandb_resume = False
 
 dataset = 'lichess_uci_hf_dataset'
-gradient_accumulation_steps = 8 # this must be evently divisiable by ddp world size
+gradient_accumulation_steps = 10 # this must be evenly divisiable by ddp world size
 batch_size = 400
 block_size = 1023 # context of up to block_size previous characters
 
@@ -24,9 +24,9 @@ n_head = 8
 n_embd = 512
 dropout = 0.0
 
-learning_rate = 3e-4 * batch_size / 50. # with baby networks can afford to go a bit higher
-max_iters = 150_000
-lr_decay_iters = 150_000 # make equal to max_iters usually
+learning_rate = 0.000226# 3e-4 * batch_size / 50. # with baby networks can afford to go a bit higher
+max_iters = 600_000
+lr_decay_iters = 400_000 # make equal to max_iters usually
 min_lr = learning_rate / 10  # learning_rate / 10 usually (orig: 3e-5)
 beta2 = 0.95 # make a bit bigger because number of tokens per iter is small
 

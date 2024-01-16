@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=uciBatch
-#SBATCH --nodes=8
-#SBATCH --ntasks=8
+#SBATCH --nodes=10
+#SBATCH --ntasks=10
 #SBATCH --time=48:00:00
 #SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=4
