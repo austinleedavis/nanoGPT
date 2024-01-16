@@ -3,7 +3,7 @@
 out_dir = 'out-lichess-uci-fixlr'
 eval_interval = 1000 # keep frequent because we'll overfit
 eval_iters = 100 # number of batch iterations over which we eval
-log_interval = 50 # don't print too too often
+log_interval = 100 # don't print too too often
 init_from = 'resume' # 'scratch' or 'resume' or 'gpt2*'
 
 always_save_checkpoint = False
