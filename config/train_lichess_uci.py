@@ -13,7 +13,7 @@ wandb_project = 'chess-gpt-batch'
 wandb_run_name = 'lichess_uci_all_elos_8layers'
 
 dataset = 'lichess_uci_hf_dataset'
-gradient_accumulation_steps = 4 # this must be evently divisiable by ddp world size
+gradient_accumulation_steps = 8 # this must be evently divisiable by ddp world size
 batch_size = 400
 block_size = 1023 # context of up to block_size previous characters
 
