@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=uciBatch
-#SBATCH --nodes=6
-#SBATCH --ntasks=6
+#SBATCH --nodes=8
+#SBATCH --ntasks=8
 #SBATCH --time=48:00:00
 #SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=4
@@ -31,7 +31,7 @@ export LOGLEVEL=INFO
 script_args="config/train_lichess_uci.py"
 
 srun torchrun \
---nnodes 6 \
+--nnodes 8 \
 --nproc_per_node 1 \
 --rdzv_id $RANDOM \
 --rdzv_backend c10d \
