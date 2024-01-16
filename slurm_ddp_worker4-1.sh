@@ -17,6 +17,7 @@ conda activate chess
 which python
 hostname
 pwd
+nvidia-smi
 
 # Set master address and port
 read -r MASTER_INFO < .master_info.txt
@@ -29,14 +30,3 @@ script_args="config/train_lichess_uci.py"
 
 # Run the training script on the worker node
 torchrun --nproc_per_node=1 --nnodes=4 --node_rank=1 --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT train.py $script_args
-
-# # =============
-# # Run this script with:
-# # =============
-# #
-# NUM_WORKERS = 4
-# $ sbatch slurm_ddp_master.sh "$NUM_WORKERS"
-
-# for i in $(seq 1 $N); do
-#   ./slurm_ddp_workers.sh "$NUM_WORKERS" "$i$
-# # $ sbatch slurm_ddp_worker.sh

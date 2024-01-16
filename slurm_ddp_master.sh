@@ -17,6 +17,7 @@ conda activate chess
 which python
 hostname
 pwd
+nvidia-smi
 
 # Set master address and port
 export MASTER_ADDR=$(hostname -I | awk '{print $1}')

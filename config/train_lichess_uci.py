@@ -1,6 +1,6 @@
 # train a miniature character-level shakespeare model
 
-out_dir = 'out-lichess-uci'
+out_dir = 'out-lichess-uci-fixlr'
 eval_interval = 1000 # keep frequent because we'll overfit
 eval_iters = 100 # number of batch iterations over which we eval
 log_interval = 50 # don't print too too often
@@ -10,7 +10,7 @@ always_save_checkpoint = False
 
 wandb_log = True # override via command line if you like
 wandb_project = 'chess-gpt-batch'
-wandb_run_name = 'lichess_uci_all_elos_8layers_new_lr'
+wandb_run_name = 'lichess_uci_all_elos_8layers_fixlr'
 
 dataset = 'lichess_uci_hf_dataset'
 gradient_accumulation_steps = 4 # this must be evently divisiable by ddp world size
