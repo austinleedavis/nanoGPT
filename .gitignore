@@ -11,3 +11,4 @@ input.txt
 wandb/*
 *.out
 scratchpad.py
+.master_info.txt
