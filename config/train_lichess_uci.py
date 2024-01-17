@@ -5,6 +5,7 @@ eval_interval = 2000 # keep frequent because we'll overfit
 eval_iters = 100 # number of batch iterations over which we eval
 log_interval = 400 # don't print too too often
 init_from = 'resume' # 'scratch' or 'resume' or 'gpt2*'
+reset_iters = True 
 
 always_save_checkpoint = True
 
