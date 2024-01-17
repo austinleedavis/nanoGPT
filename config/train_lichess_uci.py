@@ -24,10 +24,10 @@ n_head = 8
 n_embd = 512
 dropout = 0.0
 
-learning_rate = 0.000226# 3e-4 * batch_size / 50. # with baby networks can afford to go a bit higher
+learning_rate = 3e-4#2.26e-4# 3e-4 * batch_size / 50. # with baby networks can afford to go a bit higher
 max_iters = 600_000
-lr_decay_iters = 400_000 # make equal to max_iters usually
-min_lr = learning_rate / 10  # learning_rate / 10 usually (orig: 3e-5)
+lr_decay_iters = 600_000 # make equal to max_iters usually
+min_lr = 3e-5  # learning_rate / 10 usually (orig: 3e-5)
 beta2 = 0.95 # make a bit bigger because number of tokens per iter is small
 
 warmup_iters = 0 # not super necessary potentially
