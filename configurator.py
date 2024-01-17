@@ -26,6 +26,10 @@ for arg in sys.argv[1:]:
         with open(config_file) as f:
             print(f.read())
         exec(open(config_file).read())
+        
+        print(f"Setting: cfg_filename = {arg}")
+        globals()['cfg_filename'] = str(arg)
+        
     else:
         # assume it's a --key=value argument
         assert arg.startswith('--')
