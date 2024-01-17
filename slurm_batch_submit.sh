@@ -31,7 +31,7 @@ export LOGLEVEL=INFO
 script_args="config/train_lichess_uci.py"
 
 srun torchrun \
---nnodes 8 \
+--nnodes 10 \
 --nproc_per_node 1 \
 --rdzv_id $RANDOM \
 --rdzv_backend c10d \
