@@ -137,6 +137,11 @@ def get_batch(split):
 # init these up here, can override if init_from='resume' (i.e. from a checkpoint)
 iter_num = 0
 best_val_loss = 1e9
+# init these so we have timing vars for later. Shouldn't need, but bettter safe.
+t1 = 0
+dt = 0
+t0 = 0
+
 
 # attempt to derive vocab_size from the dataset
 meta_path = os.path.join(data_dir, 'meta.pkl')
@@ -328,10 +333,13 @@ while True:
     # flush the gradients as soon as we can, no need for this memory anymore
     optimizer.zero_grad(set_to_none=True)
 
-    # timing and logging
-    t1 = time.time()
-    dt = t1 - t0
-    t0 = t1
+    # timing averaged over 5 iterations
+    if iter_num % min(5,log_interval) == 0 and master_process:
+        t1 = time.time()
+        dt = t1 - t0
+        t0 = t1
+    
+    # logging
     if iter_num % log_interval == 0 and master_process:
         # get loss as float. note: this is a CPU-GPU sync point
         # scale up to undo the division above, approximating the true total loss (exact would have been a sum)
