@@ -28,7 +28,7 @@ rdzv_port=$(id -u)
 echo Node IP: $head_node_ip
 export LOGLEVEL=INFO
 
-script_args="config/train_lichess_uci.py"
+script_args="config/train_lichess_smallbatch.py"
 
 srun torchrun \
 --nnodes 10 \
