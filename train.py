@@ -323,23 +323,23 @@ while True:
 
     # timing and logging
     t1 = time.time()
+    dt = t1 - t0
+    t0 = t1
     if iter_num % log_interval == 0 and master_process:
-        dt = t1 - t0 / log_interval
-        t0 = t1
         # get loss as float. note: this is a CPU-GPU sync point
         # scale up to undo the division above, approximating the true total loss (exact would have been a sum)
         lossf = loss.item() * gradient_accumulation_steps
         if local_iter_num >= 5: # let the training loop settle a bit
             mfu = raw_model.estimate_mfu(batch_size * gradient_accumulation_steps, dt)
             running_mfu = mfu if running_mfu == -1.0 else 0.9*running_mfu + 0.1*mfu
-        print(f"iter {iter_num}: loss {lossf:.4f}, avg time {dt*1000:.2f}ms, mfu {running_mfu*100:.2f}%")
+        print(f"iter {iter_num}: loss {lossf:.4f}, time {dt*1000:.2f}ms, mfu {running_mfu*100:.2f}%")
         if wandb_log:
             wandb.log({
                 "iter": iter_num,
                 "train/loss": lossf,
                 "lr": lr,
                 "mfu": running_mfu*100, # convert to percentage
-                "iter_rate": dt,
+                "dt":dt,
             })
     iter_num += 1
     local_iter_num += 1
