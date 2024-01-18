@@ -1,10 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=uciBatch
+#SBATCH --job-name=uci400x10
 #SBATCH --nodes=10
 #SBATCH --ntasks=10
 #SBATCH --time=48:00:00
 #SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=4
+#SBATCH --constraint=h100
 
 
 # Load necessary modules (like Python, CUDA, etc.)
@@ -50,5 +51,3 @@ train.py $script_args
 
 #S---BATCH --error=z_err-master-%J.out
 #S---BATCH --output=z_out-master-%J.out
-
-#S---BATCH --constraint=h100
